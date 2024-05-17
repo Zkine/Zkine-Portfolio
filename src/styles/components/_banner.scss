@@ -1,0 +1,178 @@
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;
+    min-height: 12vh;
+    position: relative;
+    background-color: #ecebeb;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        z-index: -1;
+        opacity: 0.8;
+        background-color: lighten(#ecebeb, 3);
+        box-shadow: inset 0px -2px 3px -1px rgba(0, 0, 0, 0.5);
+    }
+
+    &:hover {
+        &::after {
+            z-index: 0;
+            opacity: 0.3;
+        }
+    }
+
+    &__titre {
+        font-size: 1em;
+        margin-right: 35px;
+        font-weight: 500;
+        margin: 0;
+        z-index: 1;
+    }
+
+    &--button {
+        cursor: pointer;
+        position: relative;
+        border-radius: 10px;
+        border: none;
+        opacity: 1;
+        z-index: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: #3d99be;
+        width: 45px;
+        height: 45px;
+        margin: 0 5px 0 15px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            cursor: pointer;
+            border-radius: 10px 10px;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        &__icone {
+            height: 42px;
+            width: 100%;
+        }
+    }
+
+    @media only screen and (min-width: 456px) and (pointer: fine) {
+        padding: 0 50px;
+
+        &__titre {
+            font-size: 1.9em;
+        }
+
+        &--button {
+            width: 55px;
+            height: 55px;
+            margin: 0 0px 0 15px;
+
+            &:hover {
+                &::after {
+                    opacity: 1;
+                    transition: opacity 300ms;
+                    background: linear-gradient(270deg, #3d99be 0%, #3ab5b0 100%);
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (pointer: fine) {
+        &__titre {
+            font-size: 2.3em;
+        }
+
+        &--button {
+            width: 75px;
+            height: 75px;
+            margin: 17px 0px 17px 15px;
+        }
+    }
+
+    @media only screen and (min-width: 990px) and (pointer: fine) {
+        padding: 0 100px;
+    }
+
+    @media only screen and (min-width: 1288px) and (pointer: fine) {
+        padding: 0 150px;
+    }
+}
+
+.active {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.7em;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px 10px;
+    border: none;
+    transition: opacity 300ms;
+    position: relative;
+    opacity: 1;
+    z-index: 1;
+    background-color: #3ab5b0;
+    width: 45px;
+    height: 45px;
+    margin: 0 5px 0 15px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        cursor: pointer;
+        border-radius: 10px 10px;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    @media only screen and (min-width: 456px) and (pointer: fine) {
+        width: 55px;
+        height: 55px;
+        margin: 0 0px 0 15px;
+
+        &:hover {
+            &::after {
+                opacity: 1;
+                transition: opacity 300ms;
+                background: linear-gradient(270deg, #3d99be 0%, #3ab5b0 100%);
+            }
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (pointer: fine) {
+        width: 75px;
+        height: 75px;
+        margin: 17px 0px 17px 15px;
+
+    }
+}

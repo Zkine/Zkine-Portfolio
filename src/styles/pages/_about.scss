@@ -1,0 +1,87 @@
+.conteneurabout {
+    display: flex;
+    margin-bottom: 130px;
+
+    &__div {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 95%;
+        background-image: linear-gradient(180deg, #fdfbfb 0%, #ebedee 100%);
+        padding: 0 10px;
+        border-radius: 10px;
+        font-size: 1em;
+        margin: auto;
+    }
+
+    &__paragraphe {
+        text-align: justify;
+        width: 100%;
+    }
+
+    &__img {
+        height: 120px;
+        border-radius: 50%;
+        margin: auto;
+    }
+
+    @media only screen and (min-width: 768px) and (pointer: fine) {
+        width: 100%;
+        margin-bottom: 0px;
+
+        &__div {
+            justify-content: space-between;
+            flex-flow: column-reverse wrap;
+            padding: 0 20px;
+        }
+
+        &__titre {
+            display: inline-block;
+            width: 50%;
+            font-weight: 500;
+        }
+
+        &__paragraphe {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (min-width: 962px) and (pointer: fine) {
+        &__div {
+            flex-flow: row nowrap;
+        }
+
+        &__img {
+            height: 286px;
+            border-radius: 10%;
+        }
+
+        &__paragraphe {
+            width: 95%;
+        }
+    }
+
+    @media only screen and (max-width: 1082px) and (orientation: landscape) and (pointer: fine) {
+        margin-bottom: 130px;
+
+        &__div {
+            flex-direction: column-reverse;
+            width: 95%;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) and (pointer: fine) {
+        &__div {
+            width: 75%;
+        }
+    }
+
+    @media only screen and (min-width: 1532px) and (pointer: fine) {
+        &__div {
+            width: 65.713%;
+        }
+
+        &__img {
+            height: 386px;
+        }
+    }
+}

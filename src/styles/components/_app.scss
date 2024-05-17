@@ -1,0 +1,22 @@
+.main {
+    height: 100%;
+    position: relative;
+
+    &__conteneur {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+    }
+
+    @media only screen and (min-width: 768px) and (pointer: fine) {
+        &__conteneur {
+            flex-direction: row;
+        }
+    }
+
+    @media only screen and (max-width: 1082px) and (orientation: landscape) and (pointer: fine) {
+        &__conteneur {
+            flex-direction: column;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+.accueil__conteneur {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 130px;
+    padding: 0 20px;
+
+    &__figure {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__ordi {
+        width: 100%;
+        margin: 20px 0 50px 0;
+    }
+
+    &__imgacc {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        aspect-ratio: 16/10.42;
+    }
+
+    &__logo {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        gap: 30px;
+    }
+
+    &__html5 {
+        width: 100px;
+        height: 100px;
+    }
+
+    &__react {
+        width: 67px;
+        height: 100px;
+    }
+
+    &__CSS3 {
+        width: 71px;
+        height: 100px;
+    }
+
+    &__sass {
+        width: 129px;
+        height: 100px;
+    }
+
+    &__js {
+        width: 100px;
+        height: 100px;
+    }
+
+    &__nodejs {
+        width: 163px;
+        height: 100px;
+    }
+
+    @media only screen and (min-width: 768px) and (pointer: fine) {
+        margin-bottom: 0px;
+    }
+
+    @media only screen and (max-height: 832px) and (orientation: landscape) and (pointer: fine) {
+        &__imgacc {
+            width: 80%;
+        }
+    }
+
+    @media only screen and (min-width: 851px) and (orientation: landscape) and (pointer: fine) {
+        margin-bottom: 130px;
+    }
+
+    @media only screen and (min-width: 1083px) and (orientation: landscape) and (pointer: fine) {
+        margin-bottom: 0px;
+        height: 88vh;
+
+        &__logo {
+            flex-flow: row nowrap;
+        }
+
+        &__ordi {
+            margin: 20px 0 0 0;
+        }
+    }
+}
