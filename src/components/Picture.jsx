@@ -12,7 +12,7 @@ export default function Picture({
     <picture>
       <source media={media} srcSet={srcSet} />
       {children}
-      <img src={src} alt={alt} className={className} />
+      <img loading="lazy" src={src} alt={alt} className={className} />
     </picture>
   );
 }

@@ -22,6 +22,6 @@ Button.propTypes = {
   ariaLabel: PropTypes.string,
   ariaPressed: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.any.isRequired,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 };

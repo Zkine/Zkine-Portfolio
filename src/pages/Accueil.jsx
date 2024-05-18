@@ -83,5 +83,5 @@ export default function Accueil({ accueilOpen }) {
   );
 }
 Accueil.propTypes = {
-  accueilOpen: PropTypes.bool,
+  accueilOpen: PropTypes.bool.isRequired,
 };

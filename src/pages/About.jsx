@@ -57,5 +57,5 @@ export default function Contact({ aboutOpen }) {
   );
 }
 Contact.propTypes = {
-  aboutOpen: PropTypes.bool,
+  aboutOpen: PropTypes.bool.isRequired,
 };

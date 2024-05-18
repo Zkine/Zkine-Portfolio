@@ -138,7 +138,7 @@ export default function Contact({ contactOpen }) {
                 onClick={validate}
                 className="conteneurcontact--bouton"
               >
-                Envoyer
+                {"Envoyer"}
               </Button>
             </p>
           </form>
@@ -148,5 +148,5 @@ export default function Contact({ contactOpen }) {
   );
 }
 Contact.propTypes = {
-  contactOpen: PropTypes.bool,
+  contactOpen: PropTypes.bool.isRequired,
 };

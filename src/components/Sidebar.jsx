@@ -5,7 +5,7 @@ export default function Sidebar({ sidebarOpen, reseaulist, children }) {
     sidebarOpen && (
       <aside className="sidebar_conteneur">
         <nav>
-          <menu className="sidebar_conteneur__menu">{children}</menu>
+          <ul className="sidebar_conteneur__menu">{children}</ul>
         </nav>
         <div className="sidebar_conteneur__icone">
           {reseaulist.map((reseau) => (
@@ -27,5 +27,5 @@ export default function Sidebar({ sidebarOpen, reseaulist, children }) {
 Sidebar.propTypes = {
   sidebarOpen: PropTypes.bool.isRequired,
   reseaulist: PropTypes.array.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.any.isRequired,
 };

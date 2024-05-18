@@ -1,6 +1,5 @@
 import { useState, useEffect, lazy } from "react";
 import Spinner from "./Spinner";
-import Banner from "./Banner";
 import Accueil from "../pages/Accueil";
 import Button from "./Button";
 import { AiFillCaretDown } from "react-icons/ai";
@@ -17,21 +16,20 @@ export default function App() {
   const [sidebarOpen, updateSidebar] = useState(false);
   const [aboutOpen, updateAbout] = useState(false);
   const [contactOpen, updateContact] = useState(false);
-
   const [clickBanner, setclickBanner] = useState(false);
-
   const [clickButtonSidebar, setclickButtonSidebar] = useState("1bu");
+
   useEffect(() => {
     if (accueilOpen === true) {
-      document.title = "Page Accueil - Portfolio Philippe JAYMES ";
+      document.title = "Accueil - Portfolio Philippe JAYMES ";
     } else if (portfolioOpen === true) {
-      document.title = "Page Portfolio - Portfolio Philippe JAYMES ";
+      document.title = "Portfolio - Portfolio Philippe JAYMES ";
     } else if (aboutOpen === true) {
-      document.title = "Page À propos - Portfolio Philippe JAYMES ";
+      document.title = "À propos - Portfolio Philippe JAYMES ";
     } else if (contactOpen === true) {
-      document.title = "Page Contact - Portfolio Philippe JAYMES ";
+      document.title = "Contact - Portfolio Philippe JAYMES ";
     }
-  });
+  }, [accueilOpen, portfolioOpen, aboutOpen, contactOpen]);
 
   useEffect(() => {
     if (sidebarOpen === false) {
@@ -90,43 +88,44 @@ export default function App() {
   return (
     <>
       <Spinner />
-      <Banner>
-        <Button
-          ariaLabel="Menu"
-          ariaPressed="false"
-          className={[clickBanner ? "active" : "banner--button"]}
-          onClick={selected}
-        >
-          <RxHamburgerMenu className="banner--button__icone" />
-        </Button>
-      </Banner>
+      <header>
+        <section className="banner">
+          <h1 className="banner__titre">Philippe JAYMES - Portfolio</h1>
+          <Button
+            ariaLabel="Menu"
+            ariaPressed="false"
+            className={[clickBanner ? "active" : "banner--button"]}
+            onClick={selected}
+          >
+            <RxHamburgerMenu className="banner--button__icone" />
+          </Button>
+        </section>
+      </header>
       <main className="main">
         <article className="main__conteneur">
           <Sidebar sidebarOpen={sidebarOpen} reseaulist={reseaulist}>
-            <>
-              {buttonlist.map(({ id, name }) => (
-                <li className="sidebar_conteneur__li" key={id}>
-                  <Button
-                    id={id}
+            {buttonlist.map(({ id, name }) => (
+              <li className="sidebar_conteneur__li" key={id}>
+                <Button
+                  id={id}
+                  className={[
+                    id === clickButtonSidebar
+                      ? "button"
+                      : "sidebar_conteneur--button",
+                  ]}
+                  onClick={() => {
+                    selectedAccueil(id);
+                  }}
+                >
+                  {name}
+                  <AiFillCaretDown
                     className={[
-                      id === clickButtonSidebar
-                        ? "button"
-                        : "sidebar_conteneur--button",
+                      id === clickButtonSidebar ? "rotate" : "rotateinit",
                     ]}
-                    onClick={() => {
-                      selectedAccueil(id);
-                    }}
-                  >
-                    {name}
-                    <AiFillCaretDown
-                      className={[
-                        id === clickButtonSidebar ? "rotate" : "rotateinit",
-                      ]}
-                    />
-                  </Button>
-                </li>
-              ))}
-            </>
+                  />
+                </Button>
+              </li>
+            ))}
           </Sidebar>
           <Accueil accueilOpen={accueilOpen} />
           <Portfolio portfolioOpen={portfolioOpen} />
