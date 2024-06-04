@@ -21,7 +21,7 @@ export default function Button({
 Button.propTypes = {
   ariaLabel: PropTypes.string,
   ariaPressed: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   children: PropTypes.any.isRequired,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 };

@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { regExpNomPrenom, regExpEmail, regExpDescription } from "../datas/data";
 import Button from "../components/Button";
 import Label from "../components/Label";
+import API from "../api/api";
 
 export default function Contact({ contactOpen }) {
   const [nom, setNom] = useState("");
@@ -13,9 +14,20 @@ export default function Contact({ contactOpen }) {
   const [isEmailError, setEmailError] = useState(false);
   const [description, setDescription] = useState("");
   const [isDescriptionError, setDescriptionError] = useState(false);
+  const [connection, setConnection] = useState(null);
 
-  const validate = (e) => {
+  useEffect(() => {
+    async function startFletch() {
+      if (connection) return API(connection);
+    }
+    startFletch();
+  });
+
+  function validate(e) {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const formJson = Object.fromEntries(formData.entries());
+
     if (!regExpNomPrenom.test(nom)) {
       setNomError(true);
     } else if (regExpNomPrenom.test(nom)) {
@@ -39,18 +51,17 @@ export default function Contact({ contactOpen }) {
     } else if (regExpDescription.test(description)) {
       setDescriptionError(false);
     }
-  };
+
+    if (!isNomError && !isPremonError && !isEmailError && !isDescriptionError)
+      return setConnection(formJson);
+  }
 
   return (
     contactOpen && (
       <section className="conteneurcontact">
         <div className="conteneurcontact__div">
           <h2 className="conteneurcontact__h2">Me contacter</h2>
-          <form
-            method="POST"
-            action="http://localhost:3030/api/message"
-            className="conteneurcontact__form"
-          >
+          <form onSubmit={validate} className="conteneurcontact__form">
             <p className="conteneurcontact__formulaire">
               <Label
                 htmlFor="nom"
@@ -126,18 +137,16 @@ export default function Contact({ contactOpen }) {
                       : "conteneurcontact__descriptif",
                   ]}
                   value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  onChange={(e) =>
+                    setDescription(e.target.value, e.stopPropagation())
+                  }
                   required
                 ></textarea>
                 {isDescriptionError && (
                   <span>🔥 Veuillez entrer un minimum dans 65 caractères.</span>
                 )}
               </label>
-              <Button
-                type="submit"
-                onClick={validate}
-                className="conteneurcontact--bouton"
-              >
+              <Button type="submit" className="conteneurcontact--bouton">
                 {"Envoyer"}
               </Button>
             </p>
