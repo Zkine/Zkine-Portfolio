@@ -10,7 +10,6 @@ export default function Label({
   className2,
   value,
   onChange,
-  autoComplete,
   boolean,
 }) {
   return (
@@ -23,8 +22,7 @@ export default function Label({
         className={className2}
         value={value}
         onChange={onChange}
-        autoComplete={autoComplete}
-        required
+        autoComplete="false"
       />
       {boolean && <span>{children[1]}</span>}
     </label>
@@ -40,6 +38,5 @@ Label.propTypes = {
   className2: PropTypes.node.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  autoComplete: PropTypes.string.isRequired,
   boolean: PropTypes.bool.isRequired,
 };

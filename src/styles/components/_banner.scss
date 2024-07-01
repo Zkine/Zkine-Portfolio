@@ -1,7 +1,5 @@
 .banner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(row, space-between, center);
     width: 100%;
     padding: 0 10px;
     min-height: 12vh;
@@ -10,14 +8,7 @@
 
     &::after {
         content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        opacity: 0;
-        z-index: -1;
-        opacity: 0.8;
+        @include position(absolute, 0, 0, 0, 0, 0.8, -1);
         background-color: lighten(#ecebeb, 3);
         box-shadow: inset 0px -2px 3px -1px rgba(0, 0, 0, 0.5);
     }
@@ -38,15 +29,11 @@
     }
 
     &--button {
+        @include flex(row, flex-end, center);
+        @include position(relative, auto, auto, auto, auto, 1, 1);
         cursor: pointer;
-        position: relative;
         border-radius: 10px;
         border: none;
-        opacity: 1;
-        z-index: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
         background-color: #3d99be;
         width: 45px;
         height: 45px;
@@ -54,25 +41,14 @@
 
         &::after {
             content: "";
+            @include position(absolute, 0, 0, 0, 0, 0, -1);
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            cursor: pointer;
             border-radius: 10px 10px;
-            opacity: 0;
-            z-index: -1;
         }
 
         &::before {
             content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
+            @include position(absolute, 0, 0, 0, 0, 0, 1);
         }
 
         &__icone {
@@ -81,7 +57,7 @@
         }
     }
 
-    @media only screen and (min-width: 456px) and (pointer: fine) {
+    @media (min-width: 456px) and (pointer: fine) {
         padding: 0 50px;
 
         &__titre {
@@ -103,7 +79,7 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (pointer: fine) {
+    @media (min-width: 768px) and (pointer: fine) {
         &__titre {
             font-size: 2.3em;
         }
@@ -115,28 +91,23 @@
         }
     }
 
-    @media only screen and (min-width: 990px) and (pointer: fine) {
+    @media (min-width: 990px) and (pointer: fine) {
         padding: 0 100px;
     }
 
-    @media only screen and (min-width: 1288px) and (pointer: fine) {
+    @media (min-width: 1288px) and (pointer: fine) {
         padding: 0 150px;
     }
 }
 
 .active {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    @include flex(row, flex-end, center);
+    @include position(relative, auto, auto, auto, auto, 1, 1);
     font-size: 1.7em;
     cursor: pointer;
-    position: relative;
     border-radius: 10px 10px;
     border: none;
     transition: opacity 300ms;
-    position: relative;
-    opacity: 1;
-    z-index: 1;
     background-color: #3ab5b0;
     width: 45px;
     height: 45px;
@@ -144,18 +115,11 @@
 
     &::after {
         content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        cursor: pointer;
+        @include position(absolute, 0, 0, 0, 0, 0, -1);
         border-radius: 10px 10px;
-        opacity: 0;
-        z-index: -1;
     }
 
-    @media only screen and (min-width: 456px) and (pointer: fine) {
+    @media (min-width: 456px) and (pointer: fine) {
         width: 55px;
         height: 55px;
         margin: 0 0px 0 15px;
@@ -169,10 +133,9 @@
         }
     }
 
-    @media only screen and (min-width: 768px) and (pointer: fine) {
+    @media (min-width: 768px) and (pointer: fine) {
         width: 75px;
         height: 75px;
         margin: 17px 0px 17px 15px;
-
     }
 }

@@ -1,14 +1,12 @@
 .accueil__conteneur {
+    @include flex(row, space-around, stretch);
     width: 100%;
-    display: flex;
-    justify-content: space-around;
     margin-bottom: 130px;
     padding: 0 20px;
 
     &__figure {
+        @include flex(column, normal, stretch);
         margin: auto;
-        display: flex;
-        flex-direction: column;
     }
 
     &__ordi {
@@ -17,18 +15,16 @@
     }
 
     &__imgacc {
+        @include flex(row, normal, center);
         width: 100%;
         height: auto;
         margin: auto;
-        display: flex;
-        align-items: center;
         aspect-ratio: 16/10.42;
     }
 
     &__logo {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
+        @include flex(row, center, stretch);
+        flex-wrap: wrap;
         width: 100%;
         height: auto;
         gap: 30px;
@@ -64,30 +60,92 @@
         height: 100px;
     }
 
-    @media only screen and (min-width: 768px) and (pointer: fine) {
-        margin-bottom: 0px;
-    }
+    // @media (min-width: 768px) and (pointer: fine) {
+    //     margin-bottom: 0px;
+    // }
 
-    @media only screen and (max-height: 832px) and (orientation: landscape) and (pointer: fine) {
+    @media (max-height: 832px) and (pointer: fine) {
         &__imgacc {
             width: 80%;
         }
     }
 
-    @media only screen and (min-width: 851px) and (orientation: landscape) and (pointer: fine) {
+    @media (min-width: 851px) and (pointer: fine) {
         margin-bottom: 130px;
     }
 
-    @media only screen and (min-width: 1083px) and (orientation: landscape) and (pointer: fine) {
+    @media (min-width: 1000px) and (pointer: fine) {
         margin-bottom: 0px;
         height: 88vh;
+        padding: 0;
+
+        &__imgacc {
+            width: 95.713%;
+        }
 
         &__logo {
-            flex-flow: row nowrap;
+            flex-flow: row wrap;
         }
 
         &__ordi {
             margin: 20px 0 0 0;
+        }
+
+        &__html5 {
+            width: 90%;
+            height: auto;
+        }
+
+        &__react {
+            width: 90%;
+            height: auto;
+        }
+
+        &__CSS3 {
+            width: 90%;
+            height: auto;
+        }
+
+        &__sass {
+            width: 90%;
+            height: auto;
+        }
+
+        &__js {
+            width: 90%;
+            height: auto;
+        }
+
+        &__nodejs {
+            width: 90%;
+            height: auto;
+        }
+    }
+
+    @media (min-width: 1016px) and (pointer: fine) {
+
+        &__html5 {
+            width: 100%;
+        }
+
+        &__react {
+            width: 100%;
+        }
+
+        &__CSS3 {
+            width: 100%;
+        }
+
+        &__sass {
+            width: 100%;
+        }
+
+        &__js {
+            width: 100%;
+        }
+
+        &__nodejs {
+            width: 100%;
         }
     }
 }

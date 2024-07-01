@@ -18,42 +18,31 @@ export default function Contact({ contactOpen }) {
 
   useEffect(() => {
     async function startFletch() {
-      if (connection) return API(connection);
+      if (connection) return await API(connection);
     }
     startFletch();
-  });
+  }, [connection]);
 
   function validate(e) {
     e.preventDefault();
+    e.stopPropagation();
+
     const formData = new FormData(e.target);
     const formJson = Object.fromEntries(formData.entries());
 
-    if (!regExpNomPrenom.test(nom)) {
-      setNomError(true);
-    } else if (regExpNomPrenom.test(nom)) {
-      setNomError(false);
-    }
+    const nameValid = regExpNomPrenom.test(nom);
+    const prenomValid = regExpNomPrenom.test(premon);
+    const emailValid = regExpEmail.test(email);
+    const descriptionValid = regExpDescription.test(description);
 
-    if (!regExpNomPrenom.test(premon)) {
-      setPremonError(true);
-    } else if (regExpNomPrenom.test(premon)) {
-      setPremonError(false);
-    }
+    setNomError(!nameValid);
+    setPremonError(!prenomValid);
+    setEmailError(!emailValid);
+    setDescriptionError(!descriptionValid);
 
-    if (!regExpEmail.test(email)) {
-      setEmailError(true);
-    } else if (regExpEmail.test(email)) {
-      setEmailError(false);
-    }
-
-    if (!regExpDescription.test(description)) {
-      setDescriptionError(true);
-    } else if (regExpDescription.test(description)) {
-      setDescriptionError(false);
-    }
-
-    if (!isNomError && !isPremonError && !isEmailError && !isDescriptionError)
+    if (nameValid && prenomValid && emailValid && descriptionValid) {
       return setConnection(formJson);
+    }
   }
 
   return (
@@ -76,7 +65,6 @@ export default function Contact({ contactOpen }) {
                 ]}
                 value={nom}
                 onChange={(e) => setNom(e.target.value)}
-                autoComplete="false"
                 boolean={isNomError}
               >
                 {"Nom :"}
@@ -97,7 +85,6 @@ export default function Contact({ contactOpen }) {
                 ]}
                 value={premon}
                 onChange={(e) => setPremon(e.target.value)}
-                autoComplete="false"
                 boolean={isPremonError}
               >
                 {"Prénom :"}
@@ -118,7 +105,6 @@ export default function Contact({ contactOpen }) {
                 ]}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                autoComplete="false"
                 boolean={isEmailError}
               >
                 {"Email :"}
@@ -137,10 +123,7 @@ export default function Contact({ contactOpen }) {
                       : "conteneurcontact__descriptif",
                   ]}
                   value={description}
-                  onChange={(e) =>
-                    setDescription(e.target.value, e.stopPropagation())
-                  }
-                  required
+                  onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
                 {isDescriptionError && (
                   <span>🔥 Veuillez entrer un minimum dans 65 caractères.</span>

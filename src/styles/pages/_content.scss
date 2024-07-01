@@ -1,0 +1,50 @@
+.content {
+    @include container();
+    width: 75%;
+    padding: 20px 20px 20px 20px;
+    position: relative;
+    @include flex (row, space-around, start);
+
+    &__btn {
+        @include position (absolute, 20px, 25px, auto, auto, 1, 0);
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+    }
+
+    &__lien {
+        @include flex (column, start, start);
+        width: 200px;
+        margin-top: 25px;
+    }
+
+    &__ul {
+        padding: 0;
+    }
+
+    &__li {
+        list-style-type: none;
+        margin-bottom: 5px;
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+
+    @media (max-width: 1000px) {
+        @include flex (column, space-around, center);
+
+        &__lien {
+            width: 100%;
+        }
+
+        &__nav {
+            width: 100%;
+        }
+
+        &__ul {
+            @include flex (row, space-around, center);
+            width: 100%;
+        }
+    }
+}

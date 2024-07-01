@@ -1,19 +1,19 @@
 @keyframes loader {
     0% {
-        translate: 0px;
+        transform: translate(0px);
         opacity: 2;
         z-index: 3;
     }
 
     50% {
-        translate: 0px;
+        transform: translate(0px);
         opacity: 2;
         z-index: 3;
         left: 0px;
     }
 
     100% {
-        translate: 3000px;
+        transform: translate(3000px);
         opacity: 2;
         z-index: 1;
     }

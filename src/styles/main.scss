@@ -1,12 +1,14 @@
 @import "node_modules/normalize-scss/sass/normalize/import-now";
-@import "./utils/keyframes";
+@import "./utils/variable";
 @import "./utils/mixins";
+@import "./utils/keyframes";
 @import "./base/police";
 @import "./base/box-sizing";
 @import "./pages/accueil";
-@import "./pages/portfolio";
+@import "./pages/projets";
 @import "./pages/about";
 @import "./pages/contact";
+@import "./pages/content";
 @import "./components/banner";
 @import "./components/sidebar";
 @import "./components/spinner";

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 export default function Button({
+  type,
   ariaLabel,
   ariaPressed,
   onClick,
@@ -9,6 +10,7 @@ export default function Button({
 }) {
   return (
     <button
+      type={type}
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}
       className={className}
@@ -19,6 +21,7 @@ export default function Button({
   );
 }
 Button.propTypes = {
+  type: PropTypes.string,
   ariaLabel: PropTypes.string,
   ariaPressed: PropTypes.string,
   onClick: PropTypes.func,

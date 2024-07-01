@@ -3,20 +3,18 @@
     position: relative;
 
     &__conteneur {
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: column;
+        @include flex(column, normal, stretch);
     }
 
-    @media only screen and (min-width: 768px) and (pointer: fine) {
-        &__conteneur {
-            flex-direction: row;
-        }
-    }
+    // @media (min-width: 768px) and (pointer: fine) {
+    //     &__conteneur {
+    //         @include flex(row, normal, stretch);
+    //     }
+    // }
 
-    @media only screen and (max-width: 1082px) and (orientation: landscape) and (pointer: fine) {
+    @media (min-width: 1000px) and (pointer: fine) {
         &__conteneur {
-            flex-direction: column;
+            @include flex(row, normal, stretch);
         }
     }
 }
