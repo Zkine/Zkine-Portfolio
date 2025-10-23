@@ -5,38 +5,37 @@ export default function Kasa({ children }) {
     <div className="content">
       <div>
         <h2>
-          Développez une application Web avec React
+          Développer une application Web avec React
           <br /> et React Router
         </h2>
         <article>
           <h3>Ce qu&apos;on apprend dans ce projet ?</h3>
           <p>
-            Travaillerer sur la logique de présentation des données et les
+            Travailler sur la logique de présentation des données et les
             composants React.
           </p>
           <p>
-            Apprendre à mettre en œuvre des animations CSS et à développer
-            l&apos;interface
-            <br /> avec SASS.
+            Mettre en œuvre des animations CSS et développer l&apos;interface
+            <br /> avec le préprocesseur SASS.
           </p>
           <p>
-            Utiliserer React Router pour configurer la navigation entre les
+            Utiliser React Router pour configurer la navigation entre les
             différentes pages
             <br /> de l&apos;application.
           </p>
         </article>
         <article>
-          <h3>Compétences aquises</h3>
-          <p>La maîtrise de React et de React Route.</p>
+          <h3>Compétences acquises</h3>
+          <p>Maîtriser React et React Route.</p>
           <p>
-            L&apos;utilisation de SASS pour gérer le CSS et
+            Utiliser le préprocesseur SASS pour gérer le CSS et
             l&apos;implémentation des animations CSS.
           </p>
         </article>
         {children}
       </div>
       <div className="content__lien">
-        <h3>Liens du projet</h3>
+        <h3>Lien du projet</h3>
         <a
           href="https://github.com/Zkine/Kasa.io"
           target="_blank"

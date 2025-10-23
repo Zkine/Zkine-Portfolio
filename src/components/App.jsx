@@ -6,87 +6,42 @@ import { AiFillCaretDown } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { ImCross } from "react-icons/im";
 import { buttonlist, reseaulist } from "../datas/data";
+
 const Sidebar = lazy(() => import("./Sidebar"));
 const Projets = lazy(() => import("../pages/Projets"));
 const About = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
 
 export default function App() {
-  const [accueilOpen, updateAccueil] = useState(true);
-  const [projetsOpen, updateProjets] = useState(false);
-  const [sidebarOpen, updateSidebar] = useState(false);
-  const [aboutOpen, updateAbout] = useState(false);
-  const [contactOpen, updateContact] = useState(false);
-  const [clickBanner, setclickBanner] = useState(false);
+  const [clickBanner, setClickBanner] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [page, setPage] = useState("Accueil");
+  const [clickButtonSidebar, setClickButtonSidebar] = useState("1bu");
   const [projetClose, setProjetClose] = useState(false);
-  const [clickButtonSidebar, setclickButtonSidebar] = useState("1bu");
 
   useEffect(() => {
-    if (accueilOpen === true) {
-      document.title = "Accueil - Portfolio Philippe JAYMES";
-    } else if (projetsOpen === true) {
-      document.title = "Projets - Portfolio Philippe JAYMES";
-    } else if (aboutOpen === true) {
-      document.title = "À propos - Portfolio Philippe JAYMES";
-    } else if (contactOpen === true) {
-      document.title = "Contact - Portfolio Philippe JAYMES";
-    }
-  }, [accueilOpen, projetsOpen, aboutOpen, contactOpen, projetClose]);
+    document.title = `${page} - Portfolio Philippe JAYMES`;
 
-  useEffect(() => {
-    if (sidebarOpen === false) {
-      setclickButtonSidebar("1bu");
-      updateAccueil(true);
-      updateProjets(false);
-      updateAbout(false);
-      updateContact(false);
+    if (!sidebarOpen) {
+      setClickButtonSidebar("1bu");
+      setPage("Accueil");
+      setProjetClose(true);
     }
-  }, [sidebarOpen, clickButtonSidebar, accueilOpen, contactOpen, projetsOpen]);
+  }, [page, sidebarOpen]);
 
-  function selected(e) {
-    let pressed = e.currentTarget.getAttribute("aria-pressed") === "true";
-    e.currentTarget.setAttribute("aria-pressed", !pressed);
-    setclickBanner(!clickBanner);
-    updateSidebar(!sidebarOpen);
+  function toggleMenu() {
+    setClickBanner((prev) => !prev);
+    setSidebarOpen((prev) => !prev);
   }
 
-  function selectedAccueil(id) {
-    setclickButtonSidebar(id);
-    switch (id) {
-      case "1bu":
-        updateAccueil(true);
-        updateProjets(false);
-        updateAbout(false);
-        updateContact(false);
-        setProjetClose(true);
-        break;
-      case "2bu":
-        updateAccueil(false);
-        updateProjets(true);
-        updateAbout(false);
-        updateContact(false);
-        break;
-      case "3bu":
-        updateProjets(false);
-        updateAccueil(false);
-        updateAbout(true);
-        updateContact(false);
-        setProjetClose(true);
-        break;
-      case "4bu":
-        updateAccueil(false);
-        updateProjets(false);
-        updateAbout(false);
-        updateContact(true);
-        setProjetClose(true);
-        break;
-      default:
-        throw new Error("Ajoutez un state au nouveau bouton.");
-    }
+  function selectPage(id, name) {
+    setClickButtonSidebar(id);
+    setPage(name);
+    setProjetClose(name !== "Projets");
   }
 
-  function handleCloseProjet() {
-    setProjetClose(true);
+  function getClassName({ baseClass, activeClass, isActive }) {
+    return isActive ? activeClass : baseClass;
   }
 
   return (
@@ -98,9 +53,13 @@ export default function App() {
           <Button
             type="button"
             ariaLabel="menu"
-            ariaPressed="false"
-            className={[clickBanner ? "active" : "banner--button"]}
-            onClick={selected}
+            ariaExpanded={clickBanner}
+            className={getClassName({
+              baseClass: "banner--button",
+              activeClass: "active",
+              isActive: clickBanner,
+            })}
+            onClick={toggleMenu}
           >
             <RxHamburgerMenu className="banner--button__icone" />
           </Button>
@@ -113,43 +72,42 @@ export default function App() {
               <li className="sidebar_conteneur__li" key={id}>
                 <Button
                   type="button"
-                  className={[
-                    id === clickButtonSidebar
-                      ? "button"
-                      : "sidebar_conteneur--button",
-                  ]}
-                  onClick={() => {
-                    selectedAccueil(id);
-                  }}
+                  ariaLabel={name}
+                  ariaPressed={id === clickButtonSidebar}
+                  className={getClassName({
+                    baseClass: "sidebar_conteneur--button",
+                    activeClass: "button",
+                    isActive: id === clickButtonSidebar,
+                  })}
+                  onClick={() => selectPage(id, name)}
                 >
                   {name}
                   <AiFillCaretDown
-                    className={[
-                      id === clickButtonSidebar ? "rotate" : "rotateinit",
-                    ]}
+                    className={
+                      id === clickButtonSidebar ? "rotate" : "rotateinit"
+                    }
                   />
                 </Button>
               </li>
             ))}
           </Sidebar>
-          <Accueil accueilOpen={accueilOpen} />
+          <Accueil accueilOpen={page === "Accueil"} />
           <Projets
-            projetsOpen={projetsOpen}
+            projetsOpen={page === "Projets"}
             setProjetClose={setProjetClose}
             projetClose={projetClose}
           >
             <Button
               type="button"
               ariaLabel="close"
-              ariaPressed="false"
               className="content__btn"
-              onClick={handleCloseProjet}
+              onClick={() => setProjetClose(true)}
             >
               <ImCross />
             </Button>
           </Projets>
-          <About aboutOpen={aboutOpen} />
-          <Contact contactOpen={contactOpen} />
+          <About aboutOpen={page === "À propos"} />
+          <Contact contactOpen={page === "Contact"} />
         </article>
       </main>
     </>

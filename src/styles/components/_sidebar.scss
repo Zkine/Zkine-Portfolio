@@ -84,6 +84,7 @@
         height: 88vh;
         width: 280px;
         margin-bottom: 0px;
+        position: relative;
 
         &__menu {
             height: 300px;
@@ -103,26 +104,6 @@
             background-color: lighten($blue-color, 5);
         }
     }
-
-    // @media (max-width: 1082px) and (orientation: landscape) and (pointer: fine) {
-    //     @include flex(column, center, stretch);
-    //     height: 330px;
-    //     width: 100%;
-    //     margin-bottom: 35px;
-    //     border-radius: 0;
-
-    //     &__icone {
-    //         @include flex(row, space-around, stretch);
-    //         @include position(absolute, auto, auto, 0, auto, 1, 1);
-    //         width: 100%;
-    //         background-color: #cfcfcf;
-    //     }
-
-    // &:hover>&__icone {
-    //     background-color: #cfcfcf;
-
-    // }
-    //     }
 }
 
 .button {
@@ -147,10 +128,6 @@
     @media (min-width: 1000px) and (pointer: fine) {
         transform: rotate(-90deg);
     }
-
-    // @media (max-width: 1082px) and (orientation: landscape) and (pointer: fine) {
-    //     transform: rotate(0deg);
-    // }
 }
 
 .rotateinit {
@@ -159,8 +136,4 @@
     @media (min-width: 1000px) and (pointer: fine) {
         transform: rotate(0deg);
     }
-
-    // @media (max-width: 1082px) and (orientation: landscape) and (pointer: fine) {
-    //     transform: rotate(180deg);
-    // }
 }

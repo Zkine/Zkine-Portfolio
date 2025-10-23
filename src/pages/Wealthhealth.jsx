@@ -4,12 +4,12 @@ export default function Wealthhealth({ children }) {
   return (
     <div className="content">
       <div>
-        <h2>Faites passer une librairie jQuery vers React</h2>
+        <h2>Faire passer une librairie jQuery vers React</h2>
         <article>
           <h3>Ce qu&apos;on apprend dans ce projet ?</h3>
           <p>
-            Refondre les pages clés de l’application en remplaçant un plugin
-            jQuery spécifique
+            Refondre les pages de l’application en remplaçant un plugin jQuery
+            spécifique
             <br /> par un <strong>composant React</strong>.
           </p>
           <p>Faire appel à la bibliothèque Recharts.</p>
@@ -18,12 +18,12 @@ export default function Wealthhealth({ children }) {
             conversion.
           </p>
           <p>
-            Rédaction de documents techniques détaillant l&apos;architecture du
+            Rédiger des documents techniques détaillant l&apos;architecture du
             composant.
           </p>
         </article>
         <article>
-          <h3>Compétences aquises</h3>
+          <h3>Compétences acquises</h3>
           <p>Produire de la documentation technique pour une application.</p>
           <p>Analyser la performance d&apos;une application web.</p>
           <p>Déployer une application front-end.</p>

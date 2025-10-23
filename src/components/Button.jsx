@@ -4,6 +4,7 @@ export default function Button({
   type,
   ariaLabel,
   ariaPressed,
+  ariaExpanded,
   onClick,
   children,
   className,
@@ -13,6 +14,7 @@ export default function Button({
       type={type}
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}
+      aria-expanded={ariaExpanded}
       className={className}
       onClick={onClick}
     >
@@ -23,7 +25,8 @@ export default function Button({
 Button.propTypes = {
   type: PropTypes.string,
   ariaLabel: PropTypes.string,
-  ariaPressed: PropTypes.string,
+  ariaPressed: PropTypes.bool,
+  ariaExpanded: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.any.isRequired,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),

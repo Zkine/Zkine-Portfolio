@@ -16,6 +16,23 @@ import Sportsee from "./SportSee";
 import Argentbank from "./Argentbank";
 import Wealthhealth from "./Wealthhealth";
 
+const projectComponents = {
+  booki: Booki,
+  ohmyfood: Ohmyfood,
+  panth: Lapanthère,
+  kanap: Kanap,
+  piiquante: Lapiiquante,
+  gameon: Gameon,
+  fisheye: Fisheye,
+  plats: Plats,
+  billed: Billed,
+  learn: Learn,
+  kasa: Kasa,
+  sportsee: Sportsee,
+  argentbank: Argentbank,
+  wealthhealth: Wealthhealth,
+};
+
 export default function Projets({
   projetsOpen,
   children,
@@ -28,53 +45,15 @@ export default function Projets({
 
   useEffect(() => {
     if (ProjetOpen && selectedImage && !projetClose) {
-      const expr = selectedImage;
-      switch (expr) {
-        case "/src/assets/brooky.webp":
-          setProjetContent(<Booki>{children}</Booki>);
-          break;
-        case "/src/assets/ohmyfood.webp":
-          setProjetContent(<Ohmyfood>{children}</Ohmyfood>);
-          break;
-        case "/src/assets/la_panth%C3%A8re.webp":
-          setProjetContent(<Lapanthère>{children}</Lapanthère>);
-          break;
-        case "/src/assets/kanap.webp":
-          setProjetContent(<Kanap>{children}</Kanap>);
-          break;
-        case "/src/assets/la_piiquante.webp":
-          setProjetContent(<Lapiiquante>{children}</Lapiiquante>);
-          break;
-        case "/src/assets/GameOn.webp":
-          setProjetContent(<Gameon>{children}</Gameon>);
-          break;
-        case "/src/assets/FishEye.webp":
-          setProjetContent(<Fisheye>{children}</Fisheye>);
-          break;
-        case "/src/assets/LesPetitsPlats.webp":
-          setProjetContent(<Plats>{children}</Plats>);
-          break;
-        case "/src/assets/Billed.webp":
-          setProjetContent(<Billed>{children}</Billed>);
-          break;
-        case "/src/assets/Learn@Home.webp":
-          setProjetContent(<Learn>{children}</Learn>);
-          break;
-        case "/src/assets/kasa.webp":
-          setProjetContent(<Kasa>{children}</Kasa>);
-          break;
-        case "/src/assets/SportSee.webp":
-          setProjetContent(<Sportsee>{children}</Sportsee>);
-          break;
-        case "/src/assets/ArgentBank.webp":
-          setProjetContent(<Argentbank>{children}</Argentbank>);
-          break;
-        case "/src/assets/WealthHealth.webp":
-          setProjetContent(<Wealthhealth>{children}</Wealthhealth>);
-          break;
-        default:
-          console.log(`Sorry, we are out of ${expr}.`);
-          setProjetContent(null);
+      const imageName = selectedImage.toLowerCase();
+
+      const projectKey = Object.keys(projectComponents).find((key) =>
+        imageName.includes(key)
+      );
+
+      if (projectKey) {
+        const Component = projectComponents[projectKey];
+        setProjetContent(<Component>{children}</Component>);
       }
     } else if (projetClose) {
       setProjetContent(null);

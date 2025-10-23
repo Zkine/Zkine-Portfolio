@@ -7,10 +7,17 @@ export default async function API(formData) {
     body: JSON.stringify({ ...formData }),
   };
 
-  fetch(import.meta.env.VITE_URL, optionsLoginPost)
+  const value = await fetch(
+    "http://localhost:1000/api/message",
+    optionsLoginPost
+  )
     .then((response) => response.json())
     .then((data) => {
-      if (data.message) return alert(data.message);
+      if (data.message) return data.message;
     })
-    .catch((error) => error(error));
+    .catch((error) => {
+      return error;
+    });
+
+  return value;
 }

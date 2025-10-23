@@ -1,18 +1,16 @@
 @font-face {
     font-family: "Roboto";
-    src: url("../fonts/Roboto-Regular-webfont.woff") format("truetype");
+    src: local("Shrikhand Regular"), local("Shrikhand-Regular"), url("../fonts/Roboto-Regular-webfont.woff") format('woff');
     font-style: normal;
     font-weight: normal;
-    font-display: optional;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Shrikhand";
-    src: url("../fonts/Shrikhand-Regular.ttf") format("truetype");
+    src: local("Shrikhand Regular"), local("Shrikhand-Regular"), url("../fonts/Shrikhand-Regular.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
-    font-display: optional;
     font-display: swap;
 }
 

@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 export default function Sidebar({ sidebarOpen, reseaulist, children }) {
   return (
     sidebarOpen && (
-      <aside className="sidebar_conteneur">
+      <div className="sidebar_conteneur">
         <nav>
           <ul className="sidebar_conteneur__menu">{children}</ul>
         </nav>
-        <div className="sidebar_conteneur__icone">
+        <aside className="sidebar_conteneur__icone">
           {reseaulist.map((reseau) => (
             <a
               key={reseau.id}
@@ -19,8 +19,8 @@ export default function Sidebar({ sidebarOpen, reseaulist, children }) {
               {reseau.icon}
             </a>
           ))}
-        </div>
-      </aside>
+        </aside>
+      </div>
     )
   );
 }

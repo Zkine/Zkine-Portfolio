@@ -7,42 +7,41 @@ export default function Learn({ children }) {
   return (
     <div className="content">
       <div>
-        <h2>Définissez les besoins pour une app de soutien scolaire</h2>
+        <h2>Définir les besoins pour une application de soutien scolaire</h2>
         <article>
           <h3>Ce qu&apos;on apprend dans ce projet ?</h3>
           <p>
-            Création des diagrammes de cas d&apos;usage pour chaque
-            fonctionnalité majeure des
+            Créer des diagrammes de cas d&apos;usage pour chaque fonctionnalité
+            majeure des
             <br /> différentes pages du site.
           </p>
           <p>
-            Développerer des User Stories pour cerner les attentes des
+            Développer des User Stories pour cerner les attentes des
             utilisateurs et définir clairement
             <br /> les objectifs à atteindre.
           </p>
           <p>
-            Création des maquettes du site en utilisant des outils comme Figma.
-            Elles serviront
-            <br /> de guide visuel pour le développement et faciliteront la
+            Créer des maquettes du site en utilisant Figma, maquettes servant
+            <br /> de guide visuel pour le développement et facilitant la
             communication des idées au
             <br /> client et à l&apos;équipe de développement.
           </p>
           <p>
-            Elaboration d&apos;un tableau Kanban détaillé, divisant le projet en
-            blocs de fonctionnalités
+            Elaborer un tableau Kanban détaillé, divisant le projet en blocs de
+            fonctionnalités
             <br /> et sous-fonctionnalités.
           </p>
         </article>
         <article>
-          <h3>Compétences aquises</h3>
+          <h3>Compétences acquises</h3>
           <p>
-            La capacité à identifier les besoins des clients, à modéliser des
-            solutions techniques
-            <br /> et à contribuer efficacement à un projet en utilisant une
-            méthodologie agile
+            Identifier les besoins des clients, modéliser des solutions
+            techniques
+            <br /> et contribuer efficacement à un projet en utilisant une
+            méthodologie Agile
           </p>
           <p>
-            La maîtrise d&apos;outils de gestion de projet comme Kanban et de
+            Maîtriser des outils de gestion de projet comme Kanban et des
             logiciels de conception
             <br /> de diagrammes.
           </p>

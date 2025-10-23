@@ -11,6 +11,8 @@ export default function Label({
   value,
   onChange,
   boolean,
+  ariainvalid,
+  ariadescribedby,
 }) {
   return (
     <label htmlFor={htmlFor} className={className}>
@@ -22,9 +24,12 @@ export default function Label({
         className={className2}
         value={value}
         onChange={onChange}
+        aria-required="true"
+        aria-invalid={ariainvalid}
+        aria-describedby={ariadescribedby}
         autoComplete="false"
       />
-      {boolean && <span>{children[1]}</span>}
+      {boolean && <>{children[1]}</>}
     </label>
   );
 }
@@ -35,8 +40,10 @@ Label.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  className2: PropTypes.node.isRequired,
+  className2: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   boolean: PropTypes.bool.isRequired,
+  ariainvalid: PropTypes.bool,
+  ariadescribedby: PropTypes.string.isRequired,
 };

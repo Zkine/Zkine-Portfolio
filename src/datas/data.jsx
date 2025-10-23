@@ -1,5 +1,5 @@
 // Importation des images pour la page Portfolio
-import Brooky from "../assets/brooky.webp";
+import Brooky from "../assets/booki.webp";
 import Ohmyfood from "../assets/ohmyfood.webp";
 import La_panthère from "../assets/la_panthère.webp";
 import Kanap from "../assets/kanap.webp";
@@ -18,7 +18,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 
 // Les regex qui permettent de valider les données inscrites par l'utilisateur page contact
-export const regExpNomPrenom = new RegExp("^[a-zA-Z]{2,}$");
+export const regExpNomPrenom = new RegExp("^[A-Za-zÀ-ÖØ-öà-ÿ\\s'-]{2,}$");
 export const regExpEmail = new RegExp(
   "^[a-z0-9.-_]+[@]{1}[a-z0-9.-_]+[.]{1}[a-z]{2,4}$"
 );

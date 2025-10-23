@@ -5,14 +5,13 @@ export default function Fisheye({ children }) {
     <div className="content">
       <div>
         <h2>
-          Créez un site accessible pour une plateforme de
+          Créer un site accessible pour une plateforme de
           <br /> photographes
         </h2>
         <article>
           <h3>Ce qu&apos;on apprend dans ce projet ?</h3>
           <p>
-            Création d&apos;une application web accessible, modulaire et
-            utilisant des{" "}
+            Créer une application web accessible, modulaire et utilisant des{" "}
             <strong>
               design patterns
               <br /> en JavaScript
@@ -24,25 +23,22 @@ export default function Fisheye({ children }) {
             l&apos;affichage des données,
             <br /> la navigation entre les pages des photographes, une modale de
             contact, une LightBox
-            <br /> pour les médias, et la gestion des likes.
-          </p>
-          <p>
-            Ecriture de code maintenable et la gestion des événements du site.
+            <br /> pour les médias et la gestion des likes.
           </p>
         </article>
         <article>
-          <h3>Compétences aquises</h3>
+          <h3>Compétences acquises</h3>
           <p>Assurer l&apos;accessibilité d&apos;un site web.</p>
           <p>
             Développer une application web modulaire avec des design patterns.
           </p>
-          <p>Ecrire du code JavaScript maintenable</p>
+          <p>Ecrire un code JavaScript maintenable</p>
           <p>Gérer les évènements d&apos;un site avec JavaScript</p>
         </article>
         {children}
       </div>
       <div className="content__lien">
-        <h3>Liens du projet</h3>
+        <h3>Lien du projet</h3>
         <a
           href="https://github.com/Zkine/Front-End-Fisheye"
           target="_blank"

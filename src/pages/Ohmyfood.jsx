@@ -4,27 +4,25 @@ export default function Ohmyfood({ children }) {
   return (
     <div className="content">
       <div>
-        <h2>Dynamisez une page web avec des animations CSS</h2>
+        <h2>Dynamiser une page web avec des animations CSS</h2>
         <article>
           <h3>Ce qu&apos;on apprend dans ce projet ?</h3>
-          <p>Implémention des animations CSS en utilisant SASS.</p>
+          <p>Implémenter des animations CSS en utilisant SASS.</p>
           <p>
-            La tâche principale est d&apos;intégrer une maquette en{" "}
-            <strong>mobile-first</strong>.
+            Intégrer une maquette en <strong>mobile-first</strong>.
           </p>
           <p>
-            Mise en œuvre des <strong>animations CSS</strong> pour enrichir
+            Mettre en œuvre des <strong>animations CSS</strong> pour enrichir
             l&apos;expérience utilisateur du site.
           </p>
         </article>
         <article>
-          <h3>Compétences aquises</h3>
-          <p>Développement d&apos;une interface web mobile-first.</p>
+          <h3>Compétences acquises</h3>
+          <p>Développer une interface web mobile-first.</p>
+          <p>Intégrer des animations en CSS.</p>
           <p>
-            L&apos;intégration d&apos;animations CSS améliore l&apos;aspect
-            visuel du site, mais aussi l&apos;expérience utilisateur.
+            Maîtriser le préprocesseur SASS pour structurer et optimiser le CSS.
           </p>
-          <p>La maîtrise de SASS pour structurer et optimiser le CSS.</p>
         </article>
         {children}
       </div>

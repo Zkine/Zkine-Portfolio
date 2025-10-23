@@ -4,7 +4,7 @@ export default function Booki({ children }) {
   return (
     <div className="content">
       <div>
-        <h2>Transformez une maquette en site web avec HTML & CSS</h2>
+        <h2>Transformer une maquette en site web avec HTML & CSS</h2>
         <article>
           <h3>Ce qu&apos;on apprend dans ce projet ?</h3>
           <p>
@@ -12,19 +12,18 @@ export default function Booki({ children }) {
             utilisant HTML et CSS.
           </p>
           <p>
-            La mission principale est d&apos;intégrer l&apos;
-            <strong>interface responsive</strong> du site. A notre disposition
-            les
+            Intégrer l&apos;<strong>interface responsive</strong> du site à
+            partir de
             <br />
             maquettes Figma pour mobile, tablette et desktop.
           </p>
         </article>
         <article>
-          <h3>Compétences aquises</h3>
-          <p>La capacité à créer des interfaces web responsives.</p>
+          <h3>Compétences acquises</h3>
+          <p>Créer des interfaces web responsives.</p>
           <p>
-            En apprenant à intégrer des maquettes avec précision en utilisant
-            HTML et CSS, et en configurant un
+            Intégrer des maquettes avec précision en utilisant HTML et CSS tout
+            en configurant un
             <br />
             environnement de développement efficace.
           </p>

@@ -9,7 +9,7 @@ export default function Contact({ contactOpen }) {
   const [nom, setNom] = useState("");
   const [isNomError, setNomError] = useState(false);
   const [premon, setPremon] = useState("");
-  const [isPremonError, setPremonError] = useState(false);
+  const [isPrenomError, setPremonError] = useState(false);
   const [email, setEmail] = useState("");
   const [isEmailError, setEmailError] = useState(false);
   const [description, setDescription] = useState("");
@@ -61,11 +61,13 @@ export default function Contact({ contactOpen }) {
                 className2={[
                   !regExpNomPrenom.test(nom) && nom !== ""
                     ? "invalid"
-                    : "conteneurcontact__imput",
+                    : "conteneurcontact__input",
                 ]}
                 value={nom}
                 onChange={(e) => setNom(e.target.value)}
                 boolean={isNomError}
+                ariainvalid={isNomError}
+                ariadescribedby="errnom"
               >
                 {"Nom :"}
                 {
@@ -81,11 +83,13 @@ export default function Contact({ contactOpen }) {
                 className2={[
                   !regExpNomPrenom.test(premon) && premon !== ""
                     ? "invalid"
-                    : "conteneurcontact__imput",
+                    : "conteneurcontact__input",
                 ]}
                 value={premon}
                 onChange={(e) => setPremon(e.target.value)}
-                boolean={isPremonError}
+                boolean={isPrenomError}
+                ariainvalid={isPrenomError}
+                ariadescribedby="errprenom"
               >
                 {"Prénom :"}
                 {
@@ -101,11 +105,13 @@ export default function Contact({ contactOpen }) {
                 className2={[
                   !regExpEmail.test(email) && email !== ""
                     ? "invalid"
-                    : "conteneurcontact__imput",
+                    : "conteneurcontact__input",
                 ]}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 boolean={isEmailError}
+                ariainvalid={isEmailError}
+                ariadescribedby="erremail"
               >
                 {"Email :"}
                 {"🔥 Veuillez entrer une adresse mail valide."}
