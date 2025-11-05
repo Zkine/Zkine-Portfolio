@@ -7,10 +7,7 @@ export default async function API(formData) {
     body: JSON.stringify({ ...formData }),
   };
 
-  const value = await fetch(
-    "http://localhost:1000/api/message",
-    optionsLoginPost
-  )
+  const value = await fetch(import.meta.env.VITE_URL, optionsLoginPost)
     .then((response) => response.json())
     .then((data) => {
       if (data.message) return data.message;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { portfoliolist } from "../datas/data";
+
 import Booki from "./Booki";
 import Ohmyfood from "./Ohmyfood";
 import Lapanthère from "./Lapanthère";
@@ -40,39 +41,32 @@ export default function Projets({
   projetClose,
 }) {
   const [ProjetOpen, updateProjet] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedKey, setSelectedKey] = useState(null);
   const [ProjetContent, setProjetContent] = useState(null);
 
   useEffect(() => {
-    if (ProjetOpen && selectedImage && !projetClose) {
-      const imageName = selectedImage.toLowerCase();
-
-      const projectKey = Object.keys(projectComponents).find((key) =>
-        imageName.includes(key)
-      );
-
-      if (projectKey) {
-        const Component = projectComponents[projectKey];
+    if (ProjetOpen && selectedKey && !projetClose) {
+      const Component = projectComponents[selectedKey];
+      if (Component) {
         setProjetContent(<Component>{children}</Component>);
       }
     } else if (projetClose) {
       setProjetContent(null);
-      setSelectedImage(null);
+      setSelectedKey(null);
       updateProjet(false);
-      setProjetClose(!projetClose);
+      setProjetClose((projet) => !projet);
     }
   }, [
     ProjetOpen,
-    selectedImage,
+    selectedKey,
     projetsOpen,
     children,
     projetClose,
     setProjetClose,
   ]);
 
-  function renderProjet(e) {
-    const src = e.target.getAttribute("src");
-    setSelectedImage(src);
+  function renderProjet(key) {
+    setSelectedKey(key);
     updateProjet(true);
   }
 
@@ -88,7 +82,7 @@ export default function Projets({
                     loading="lazy"
                     src={portfolio.src}
                     alt={portfolio.alt}
-                    onClick={renderProjet}
+                    onClick={() => renderProjet(portfolio.key)}
                     className="portfolio__conteneur__img"
                   />
                 </figure>
