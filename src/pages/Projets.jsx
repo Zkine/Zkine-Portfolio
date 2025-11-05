@@ -40,40 +40,25 @@ export default function Projets({
   setProjetClose,
   projetClose,
 }) {
-  const [ProjetOpen, updateProjet] = useState(false);
   const [selectedKey, setSelectedKey] = useState(null);
-  const [ProjetContent, setProjetContent] = useState(null);
 
   useEffect(() => {
-    if (ProjetOpen && selectedKey && !projetClose) {
-      const Component = projectComponents[selectedKey];
-      if (Component) {
-        setProjetContent(<Component>{children}</Component>);
-      }
-    } else if (projetClose) {
-      setProjetContent(null);
+    if (projetClose) {
       setSelectedKey(null);
-      updateProjet(false);
-      setProjetClose((projet) => !projet);
     }
-  }, [
-    ProjetOpen,
-    selectedKey,
-    projetsOpen,
-    children,
-    projetClose,
-    setProjetClose,
-  ]);
+  }, [projetClose]);
 
-  function renderProjet(key) {
+  const renderProjet = (key) => {
     setSelectedKey(key);
-    updateProjet(true);
-  }
+    if (projetClose) setProjetClose(false);
+  };
+
+  const SelectedComponent = selectedKey ? projectComponents[selectedKey] : null;
 
   return (
     projetsOpen && (
       <section className="portfolio__conteneur">
-        {!ProjetOpen ? (
+        {!SelectedComponent ? (
           <div className="portfolio__conteneur__element">
             {portfoliolist.map((portfolio) => (
               <div className="portfolio__conteneur__section" key={portfolio.id}>
@@ -90,7 +75,9 @@ export default function Projets({
             ))}
           </div>
         ) : (
-          ProjetContent
+          <SelectedComponent closeProjet={() => setProjetClose(true)}>
+            {children}
+          </SelectedComponent>
         )}
       </section>
     )
