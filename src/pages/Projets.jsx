@@ -45,12 +45,12 @@ export default function Projets({
   useEffect(() => {
     if (projetClose) {
       setSelectedKey(null);
+      setProjetClose(false);
     }
-  }, [projetClose]);
+  }, [projetClose, setProjetClose]);
 
   const renderProjet = (key) => {
     setSelectedKey(key);
-    if (projetClose) setProjetClose(false);
   };
 
   const SelectedComponent = selectedKey ? projectComponents[selectedKey] : null;
